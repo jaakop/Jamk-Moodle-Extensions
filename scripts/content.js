@@ -1,4 +1,5 @@
-let courseId = (new URLSearchParams(window.location.search)).get('id');
+const searchParams = new URLSearchParams(window.location.search)
+const courseId = searchParams.get('id') ?? searchParams.get('courseid');
 
 let navContainer = document.querySelector("#usernavigation");
 
