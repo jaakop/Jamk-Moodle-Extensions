@@ -14,3 +14,6 @@ Quick links to course contents:
 - Blog
 - Feedback Activities
 - Choices
+
+## Installation
+To install the extension please follow [Google's instructions](https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world#load-unpacked) on installing an unpacked extension
