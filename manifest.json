@@ -11,7 +11,8 @@
       "js": ["scripts/content.js"],
       "matches": [
         "https://moodle.jamk.fi/course/*",
-        "https://moodle.jamk.fi/mod/*"
+        "https://moodle.jamk.fi/mod/*",
+        "https://moodle.jamk.fi/blog/*courseid=*"
       ]
     }
   ],
