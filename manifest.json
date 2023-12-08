@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "JAMK Moodle",
+  "version": "1.0",
+  "description": "Pretify jamk moodle and add usability improvements",
+
+  "icons": {
+  },
+  "content_scripts": [
+    {
+      "js": ["scripts/content.js"],
+      "matches": [
+        "https://moodle.jamk.fi/course/*",
+        "https://moodle.jamk.fi/mod/*"
+      ]
+    }
+  ],
+  "permissions": [
+    "storage"
+  ],
+  "options_ui": {
+    "page": "options/options.html",
+    "open_in_tab": false
+  }
+}
