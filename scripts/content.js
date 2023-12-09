@@ -34,7 +34,7 @@ chrome.storage.sync.get(
     if (items.forums)
       createNavButton("Forums", "https://moodle.jamk.fi/mod/forum/index.php?id=", "https://moodle.jamk.fi/theme/image.php/maisteriboost/forum/1701777894/monologo");
     if (items.blog)
-      createNavButton("Blog", "https://moodle.jamk.fi/blog/index.php?courseid=", "https://moodle.jamk.fi/theme/image.php/maisteriboost/mod_page/1701777894/monologo");
+      createNavIcon("Blog", "https://moodle.jamk.fi/blog/index.php?courseid=", "fa-rss");
     if (items.feedbackActivities)
       createNavButton("Feedback Activities", "https://moodle.jamk.fi/mod/feedback/index.php?id=", "https://moodle.jamk.fi/theme/image.php/maisteriboost/feedback/1701777894/monologo");
     if (items.choices)
@@ -52,6 +52,27 @@ function createNavButton(title, link, imgSrc) {
   elIcon.title = title;
   elIcon.width = 25;
   elIcon.height = 25;
+  el.append(elIcon);
+
+  el.style.display = "flex";
+  el.style.alignItems = "center";
+  el.href = link + courseId;
+
+  courseNav.append(el);
+}
+
+function createNavIcon(title, link, icon) {
+  let el = document.createElement("a");
+  let elIcon = document.createElement("i");
+
+  elIcon.className = "icon fa fa-fw " + icon;
+  elIcon.style.color = "white";
+  elIcon.style.fontSize = "25px";
+  elIcon.style.width = "25px";
+  elIcon.style.height = "25px";
+  elIcon.style.margin = "0";
+  elIcon.title = title;
+  
   el.append(elIcon);
 
   el.style.display = "flex";
