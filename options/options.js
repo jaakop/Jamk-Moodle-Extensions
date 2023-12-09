@@ -10,6 +10,7 @@ const saveOptions = () => {
     let blog = document.getElementById('blog').checked;
     let feedbackActivities = document.getElementById('feedbackActivities').checked;
     let choices = document.getElementById('choices').checked;
+    let dashboardLinks = document.getElementById('dashboardLinks').checked;
   
     chrome.storage.sync.set(
         { 
@@ -22,6 +23,7 @@ const saveOptions = () => {
             blog: blog,
             feedbackActivities: feedbackActivities,
             choices: choices,
+            dashboardLinks: dashboardLinks,
         },
       () => {
         // Update status to let user know options were saved.
@@ -48,6 +50,7 @@ const saveOptions = () => {
         blog: true,
         feedbackActivities: true,
         choices: true,
+        dashboardLinks: true,
     },
       (items) => {
         document.getElementById('assignments').checked = items.assignments;
@@ -59,6 +62,7 @@ const saveOptions = () => {
         document.getElementById('blog').checked = items.blog;
         document.getElementById('feedbackActivities').checked = items.feedbackActivities;
         document.getElementById('choices').checked = items.choices;
+        document.getElementById('dashboardLinks').checked = items.dashboardLinks;
       }
     );
   };
