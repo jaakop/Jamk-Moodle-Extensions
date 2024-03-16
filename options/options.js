@@ -11,6 +11,7 @@ const saveOptions = () => {
     let feedbackActivities = document.getElementById('feedbackActivities').checked;
     let choices = document.getElementById('choices').checked;
     let dashboardLinks = document.getElementById('dashboardLinks').checked;
+    let attendance = document.getElementById('attendance').checked;
   
     chrome.storage.sync.set(
         { 
@@ -24,6 +25,7 @@ const saveOptions = () => {
             feedbackActivities: feedbackActivities,
             choices: choices,
             dashboardLinks: dashboardLinks,
+            attendance: attendance
         },
       () => {
         // Update status to let user know options were saved.
@@ -51,6 +53,7 @@ const saveOptions = () => {
         feedbackActivities: true,
         choices: true,
         dashboardLinks: true,
+        attendance: true,
     },
       (items) => {
         document.getElementById('assignments').checked = items.assignments;
@@ -63,6 +66,7 @@ const saveOptions = () => {
         document.getElementById('feedbackActivities').checked = items.feedbackActivities;
         document.getElementById('choices').checked = items.choices;
         document.getElementById('dashboardLinks').checked = items.dashboardLinks;
+        document.getElementById('attendance').checked = items.attendance;
       }
     );
   };

@@ -11,7 +11,8 @@ chrome.storage.sync.get(
         blog: true,
         feedbackActivities: true,
         choices: true,
-        dashboardLinks: true
+        dashboardLinks: true,
+        attendance: true
     },
     (items) => {
         extensionSettings = items;
@@ -19,18 +20,25 @@ chrome.storage.sync.get(
 
 
 const observer = new MutationObserver(() => {
-    if(!extensionSettings.dashboardLinks)
+    if(!extensionSettings.dashboardLinks) 
         return;
         
     document.querySelectorAll(".block_myoverview .dashboard-card-deck .dashboard-card").forEach(card => {
+        if(card.querySelector("#jamkMoodleExtensionNav") != null)
+            return;
+
         let id = card.dataset.courseId;
         let courseNav = document.createElement("div");
         card.querySelector(".card-body").append(courseNav);
+        courseNav.id = "jamkMoodleExtensionNav"
         courseNav.style.display = "flex";
         courseNav.style.gap = "20px";
+        courseNav.style.overflowX = "scroll";
 
         if (extensionSettings.assignments)
             createNavButton(courseNav, id, "Assignments", "https://moodle.jamk.fi/mod/assign/index.php?id=", "https://moodle.jamk.fi/theme/image.php/maisteriboost/assign/1701777894/monologo?filtericon=1");
+        if (extensionSettings.attendance)
+            createNavButton(courseNav, id, "Attendance", "https://moodle.jamk.fi/mod/attendance/index.php?id=", "	https://moodle.jamk.fi/theme/image.php/maisteriboost/attendance/1708319230/monologo?filtericon=1");
         if (extensionSettings.resources)
             createNavButton(courseNav, id, "Resources", "https://moodle.jamk.fi/course/resources.php?id=", "https://moodle.jamk.fi/theme/image.php/maisteriboost/mod_page/1701777894/monologo");
         if (extensionSettings.interactiveContent)
@@ -58,6 +66,7 @@ const config = { childList: true, subtree:true };
 
 observer.observe(document.querySelector(".block_myoverview"), config);
 
+document.querySelector("#topofscroll").style.cssText = 'max-width:unset !important;'
 
 function createNavButton(courseNav, id, title, link, imgSrc) {
 

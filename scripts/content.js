@@ -19,10 +19,13 @@ chrome.storage.sync.get(
     blog: true,
     feedbackActivities: true,
     choices: true,
+    attendance: true,
   },
   (items) => {
     if (items.assignments)
       createNavButton("Assignments", "https://moodle.jamk.fi/mod/assign/index.php?id=", "https://moodle.jamk.fi/theme/image.php/maisteriboost/assign/1701777894/monologo?filtericon=1");
+    if (items.attendance)
+      createNavButton("Attendance", "https://moodle.jamk.fi/mod/attendance/index.php?id=", "	https://moodle.jamk.fi/theme/image.php/maisteriboost/attendance/1708319230/monologo?filtericon=1");
     if (items.resources)
       createNavButton("Resources", "https://moodle.jamk.fi/course/resources.php?id=", "https://moodle.jamk.fi/theme/image.php/maisteriboost/mod_page/1701777894/monologo");
     if (items.interactiveContent)
