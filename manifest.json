@@ -16,6 +16,12 @@
       ]
     },
     {
+      "js": ["scripts/blog.js"],
+      "matches": [
+        "https://moodle.jamk.fi/*"
+      ]
+    },
+    {
       "js": ["scripts/dashboard.js"],
       "matches": [
         "https://moodle.jamk.fi/my/"
