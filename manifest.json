@@ -24,7 +24,8 @@
     {
       "js": ["scripts/dashboard.js"],
       "matches": [
-        "https://moodle.jamk.fi/my/"
+        "https://moodle.jamk.fi/my/",
+        "https://moodle.jamk.fi/my/index.php"
       ]
     }
   ],

@@ -58,6 +58,13 @@ const observer = new MutationObserver(() => {
 
         observer.disconnect();
     })
+
+    document.querySelectorAll(".block_calendar_upcoming .event").forEach(event => {
+        console.log(event.querySelector(".date"));
+        event.querySelector(".date").outerHTML = "";
+        event.querySelector(".activityiconcontainer").outerHTML = "";
+    });
+
     observer.observe(document.querySelector(".block_myoverview"), config);
 });
 
